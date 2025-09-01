@@ -3,22 +3,22 @@ import React from "react";
 function Home() {
   return (
     <div style={styles.page}>
-      {/* Hero / Jumbotron */}
       <header style={styles.hero}>
         <h1 style={styles.title}>Escuela PROA</h1>
         <p style={styles.subtitle}>Formando el futuro con innovación y valores</p>
       </header>
 
-      {/* Presentación */}
+
       <section style={styles.section}>
         <h2 style={styles.sectionTitle}>¿Quiénes somos?</h2>
         <p style={styles.text}>
           Somos una institución educativa comprometida con la excelencia académica,
-          el desarrollo personal y la formación de ciudadanos responsables. 
+          el desarrollo personal y la formación de ciudadanos responsables.
+          mire a los responsables de la pagina en acerca de nosotros 
         </p>
       </section>
 
-      {/* Carreras */}
+
       <section style={styles.section}>
         <h2 style={styles.sectionTitle}>Nuestras Orientaciones</h2>
         <div style={styles.cards}>
