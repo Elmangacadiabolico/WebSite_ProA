@@ -1,18 +1,23 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-/* INSTALAR BOOTSTRAP ANTES DE CORRER EL CODIGO POR QUE SI NO ANDA, npm i bootstrap */
-import Navbar from "./componentes/Navbar";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Footer from "./componentes/Footer";
-import Jumbotron from "./componentes/Jumbotron";
-import MainContent from "./componentes/MainContent";
+import Home from "./componentes/home";
+import Navbar from "./componentes/Navbar";
+import Lore from "./componentes/Lore";
+import "./Global.css";
+
+
 
 function App() {
   return (
-    <>
-      <Navbar />
-      <Jumbotron />
-      <MainContent />
-      <Footer />
-    </>
+    <Router>
+      <Navbar/>
+      
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path="/Acerca de nosotros" element={<Lore/>} />       
+      </Routes>
+          <Footer/>
+    </Router>
   );
 }
 
