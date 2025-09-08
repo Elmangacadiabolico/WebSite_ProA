@@ -1,5 +1,4 @@
-
-
+import "../CSS/Error404.css"
 function Error404() {
   return (
     <div className="error-page">

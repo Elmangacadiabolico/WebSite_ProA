@@ -16,7 +16,14 @@ Experiencias reales de aprendizaje, donde cada estudiante puede crear, experimen
 
 En PRoA formamos a la nueva generación de protagonistas que van a construir el mañana.
 Porque creemos que el futuro no se espera… ¡se programa!</h3>
+
+
+<div className="conteiner">
+      <div className="card"></div>
+      </div>
     </>
+
+   
   )
 }
 

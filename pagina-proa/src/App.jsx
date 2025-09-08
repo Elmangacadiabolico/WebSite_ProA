@@ -5,6 +5,8 @@ import Navbar from "./componentes/Navbar";
 import Lore from "./componentes/Lore";
 import Error404 from "./componentes/Error404";
 import Calendraio from "./componentes/Calendario"
+import TareasApp from "./componentes/Tareas";
+import Contactos from "./componentes/Contactos";
 
 
 function App() {
@@ -17,10 +19,11 @@ function App() {
       <Route path="/" element={<Home/>} />
       <Route path="/Inicio" element={<Home/>} />
       <Route path="/Acerca" element={<Lore/>} />  
-      <Route path="Clase" element={<clase/>} /> 
+      <Route path="/tarea" element={<TareasApp/>} /> 
       <Route path="/Calendario" element={<Calendraio/>} /> 
 
       </Routes>
+      <Contactos/>
           <Footer/>
     </Router>
   );

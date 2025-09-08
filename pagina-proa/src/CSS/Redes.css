@@ -1,0 +1,85 @@
+.footer {
+    background: #222;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Contenedor del menú */
+  .menu {
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  
+  /* Botón principal */
+  .toggle {
+    width: 80px;
+    height: 80px;
+    background: #00416a;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .toggle:hover {
+    background: #ffd700;
+    color: #222;
+  }
+  
+  /* Estilos para los ítems sociales */
+  .social-item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 55px;
+    height: 55px;
+    background: #00416a;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.5rem;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.4s ease, background 0.3s ease;
+  }
+  
+  .social-item a {
+    color: white;
+    font-size: 1.5rem;
+  }
+  
+  .social-item:hover {
+    background: #ffd700;
+    color: #222;
+  }
+  
+  /* Cuando el menú está activo (toggle presionado) */
+  .menu.active .social-item {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  /* Posiciones de los ítems (como "explosión circular") */
+  .menu.active .facebook {
+    transform: translate(-150%, -50%) scale(1);
+  }
+  
+  .menu.active .twitter {
+    transform: translate(50%, -150%) scale(1);
+  }
+  
+  .menu.active .instagram {
+    transform: translate(150%, -50%) scale(1);
+  }
+  
+  .menu.active .linkedin {
+    transform: translate(-50%, 150%) scale(1);
+  }
+  
