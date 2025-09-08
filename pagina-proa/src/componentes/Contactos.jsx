@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube, FaWhatsapp } from "react-icons/fa";
 import "../CSS/Redes.css"
+
 function Contantos() {
   const [active, setActive] = useState(false);
 
@@ -8,12 +10,11 @@ function Contantos() {
     <>
     <div className="conteiner">
     <div className={`menu ${active ? "active" : ""}`}>
-        {/* Botón principal */}
         <div className="toggle" onClick={() => setActive(!active)}>
           <ion-icon name="share-social"></ion-icon>
         </div>
 
-        {/* Ítems que se expanden */}
+
         <div className="social-item facebook">
           <a href="https://facebook.com" target="_blank" rel="noreferrer">
             <ion-icon name="logo-facebook"></ion-icon>

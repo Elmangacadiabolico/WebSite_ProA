@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube, FaWhatsapp } from "react-icons/fa";
 import Footer from "./componentes/Footer";
 import Home from "./componentes/home";
 import Navbar from "./componentes/Navbar";
