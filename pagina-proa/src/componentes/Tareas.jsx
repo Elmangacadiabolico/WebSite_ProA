@@ -1,15 +1,16 @@
 import React, { useState } from "react";
+import "../CSS/tareas.css"
 
 function Tarea({ tarea, completarTarea, eliminarTarea }) {
   return (
-    <li>
-      <span style={{ textDecoration: tarea.completada ? "line-through" : "none" }}>
+    <li className="tarea-item">
+      <span className={tarea.completada ? "completada" : ""}>
         {tarea.titulo}
       </span>
       {!tarea.completada && (
-        <button onClick={() => completarTarea(tarea.id)}>:D Completar</button>
+        <button onClick={() => completarTarea(tarea.id)}>✅ Completar</button>
       )}
-      <button onClick={() => eliminarTarea(tarea.id)}>:c Eliminar</button>
+      <button onClick={() => eliminarTarea(tarea.id)}>❌ Eliminar</button>
     </li>
   );
 }
@@ -35,50 +36,51 @@ export default function TareasApp() {
 
   const completarTarea = (id) => {
     setTareas(
-      tareas.map((t) =>
-        t.id === id ? { ...t, completada: true } : t
-      )
+      tareas.map((t) => (t.id === id ? { ...t, completada: true } : t))
     );
   };
 
-  const totalCompletadas = tareas.reduce(
-    (acc, tarea) => (tarea.completada ? acc + 1 : acc),
-    0
-  );
+  const totalCompletadas = tareas.filter((t) => t.completada).length;
 
   return (
-    <div>
-      <h2> Tareas</h2>
-      <input
-        type="text"
-        value={titulo}
-        onChange={(e) => setTitulo(e.target.value)}
-        placeholder="Nueva tarea"
-      />
-      <button onClick={agregarTarea}>Agregar</button>
+    <div className="tareas-app">
+      <h2>Tareas</h2>
+      <div className="input-group">
+        <input
+          type="text"
+          value={titulo}
+          onChange={(e) => setTitulo(e.target.value)}
+          placeholder="Nueva tarea"
+        />
+        <button onClick={agregarTarea}>➕ Agregar</button>
+      </div>
 
       <h3>Pendientes</h3>
       <ul>
-        {tareas.filter((t) => !t.completada).map((t) => (
-          <Tarea
-            key={t.id}
-            tarea={t}
-            completarTarea={completarTarea}
-            eliminarTarea={eliminarTarea}
-          />
-        ))}
+        {tareas
+          .filter((t) => !t.completada)
+          .map((t) => (
+            <Tarea
+              key={t.id}
+              tarea={t}
+              completarTarea={completarTarea}
+              eliminarTarea={eliminarTarea}
+            />
+          ))}
       </ul>
 
       <h3>Completadas</h3>
       <ul>
-        {tareas.filter((t) => t.completada).map((t) => (
-          <Tarea
-            key={t.id}
-            tarea={t}
-            completarTarea={completarTarea}
-            eliminarTarea={eliminarTarea}
-          />
-        ))}
+        {tareas
+          .filter((t) => t.completada)
+          .map((t) => (
+            <Tarea
+              key={t.id}
+              tarea={t}
+              completarTarea={completarTarea}
+              eliminarTarea={eliminarTarea}
+            />
+          ))}
       </ul>
 
       <p>
@@ -87,4 +89,3 @@ export default function TareasApp() {
     </div>
   );
 }
-

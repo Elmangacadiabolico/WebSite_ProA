@@ -1,0 +1,108 @@
+/* ====== Página Home ====== */
+.home-page {
+    font-family: "Segoe UI", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f9fafb;
+    color: #1f2937;
+  }
+  
+  /* ====== Hero principal ====== */
+  .hero {
+    background: linear-gradient(135deg, #00416a, #e4e5e6);
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+  }
+  
+  .hero .title {
+    font-size: 3rem;
+    margin: 0;
+  }
+  
+  .hero .subtitle {
+    font-size: 1.2rem;
+    margin-top: 10px;
+  }
+  
+  /* ====== Secciones ====== */
+  .section {
+    padding: 60px 20px;
+    text-align: center;
+    background: white;
+  }
+  
+  .section:nth-of-type(even) {
+    background: #f3f4f6;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #00416a;
+  }
+  
+  .text {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #374151;
+  }
+  
+  /* ====== Cards ====== */
+  .cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  
+  .card {
+    background: white;
+    padding: 25px;
+    border-radius: 14px;
+    width: 260px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-align: center;
+  }
+  
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  }
+  
+  .card h3 {
+    color: #00416a;
+    margin-bottom: 10px;
+  }
+  
+  .card p {
+    color: #374151;
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+  
+  /* ====== Noticias ====== */
+  .news-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+    font-size: 1.1rem;
+    text-align: left;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .news-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .news-list li:last-child {
+    border-bottom: none;
+  }
+  

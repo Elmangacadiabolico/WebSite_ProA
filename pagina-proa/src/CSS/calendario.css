@@ -1,0 +1,132 @@
+.calendar-app {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    font-family: "Segoe UI", sans-serif;
+    color: #1f2937;
+  }
+  
+  .calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .calendar-header h2 {
+    text-transform: capitalize;
+    font-size: 1.6rem;
+    color: #4f46e5;
+  }
+  
+  .calendar-header button {
+    background: #4f46e5;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s ease;
+  }
+  
+  .calendar-header button:hover {
+    background: #4338ca;
+  }
+  
+  /* Grid del calendario */
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .calendar-dayname {
+    background: #f3f4f6;
+    text-align: center;
+    font-weight: 600;
+    padding: 8px;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .calendar-cell {
+    min-height: 100px;
+    padding: 6px;
+    border: 1px solid #f3f4f6;
+    background: white;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  
+  .calendar-cell:hover {
+    background: #f9fafb;
+  }
+  
+  .calendar-cell.out-month {
+    background: #f9fafb;
+    color: #9ca3af;
+  }
+  
+  .calendar-cell.today {
+    border: 2px solid #4f46e5;
+    background: #eef2ff;
+  }
+  
+  .day-number {
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+  
+  .events-list {
+    font-size: 0.75rem;
+    margin-top: 4px;
+    padding-left: 10px;
+  }
+  
+  .events-list li {
+    list-style: disc;
+    color: #374151;
+  }
+  
+  /* Formulario para eventos */
+  .event-form {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    background: #f9fafb;
+  }
+  
+  .event-form h3 {
+    margin-bottom: 10px;
+    color: #374151;
+  }
+  
+  .event-form input {
+    padding: 8px;
+    width: 70%;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    margin-right: 8px;
+  }
+  
+  .event-form button {
+    padding: 8px 14px;
+    background: #10b981;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  
+  .event-form button:hover {
+    background: #059669;
+  }
+  
