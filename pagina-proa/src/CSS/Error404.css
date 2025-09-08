@@ -1,59 +1,141 @@
 .error-page {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(135deg, #00416a, #e4e5e6);
-    color: #fff;
-    text-align: center;
-    padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: black;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Número 404 grande */
+.error-page h1 {
+  font-size: 10rem;
+  font-weight: bold;
+  color: #ff0000;
+  text-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+  animation: pulse 2s infinite alternate;
+  position: relative;
+}
+
+/* Ojos locos */
+.eyes {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 20px 0;
+}
+
+.eye {
+  width: 60px;
+  height: 60px;
+  background: white;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 10px red;
+}
+
+.pupil {
+  width: 20px;
+  height: 20px;
+  background: black;
+  border-radius: 50%;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  animation: crazy-eyes 1s infinite alternate;
+}
+
+/* Texto */
+.error-page p {
+  font-size: 1.5rem;
+  margin: 20px 0;
+  max-width: 600px;
+}
+
+/* Botón */
+.error-page a {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: #ff0000;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.error-page a:hover {
+  background: #fff;
+  color: #ff0000;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+}
+
+/* Palabras desde abajo */
+.falling-text {
+  position: absolute;
+  bottom: -100px;
+  font-size: 2rem;
+  color: white;
+  opacity: 0;
+  animation: fall 6s infinite;
+}
+
+.falling-text:nth-child(1) {
+  left: 20%;
+  animation-delay: 0s;
+  content: "why";
+}
+
+.falling-text:nth-child(2) {
+  left: 50%;
+  animation-delay: 2s;
+}
+
+.falling-text:nth-child(3) {
+  left: 80%;
+  animation-delay: 4s;
+}
+
+/* Animaciones */
+@keyframes pulse {
+  from {
+    transform: scale(1);
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
   }
-  
-  /* Número 404 grande con animación */
-  .error-page h1 {
-    font-size: 10rem;
-    font-weight: bold;
-    color: #ffd700;
-    text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
-    animation: pulse 2s infinite alternate;
+  to {
+    transform: scale(1.1);
+    text-shadow: 0 0 30px rgba(255, 0, 0, 1);
   }
-  
-  /* Texto */
-  .error-page p {
-    font-size: 1.5rem;
-    margin: 20px 0;
-    max-width: 600px;
+}
+
+@keyframes crazy-eyes {
+  from {
+    top: 10px;
+    left: 10px;
   }
-  
-  /* Botón */
-  .error-page a {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 24px;
-    background: #00416a;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: bold;
-    transition: all 0.3s ease;
+  to {
+    top: 30px;
+    left: 30px;
   }
-  
-  .error-page a:hover {
-    background: #ffd700;
-    color: #00416a;
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
   }
-  
-  /* Animación del número */
-  @keyframes pulse {
-    from {
-      transform: scale(1);
-      text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
-    }
-    to {
-      transform: scale(1.1);
-      text-shadow: 0 0 30px rgba(255, 215, 0, 1);
-    }
+  30% {
+    opacity: 1;
   }
-  
+  100% {
+    transform: translateY(-120vh);
+    opacity: 0;
+  }
+}
