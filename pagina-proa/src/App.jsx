@@ -3,8 +3,7 @@ import Footer from "./componentes/Footer";
 import Home from "./componentes/home";
 import Navbar from "./componentes/Navbar";
 import Lore from "./componentes/Lore";
-import "./Global.css";
-
+import Error404 from "./componentes/Error404";
 
 
 function App() {
@@ -13,8 +12,12 @@ function App() {
       <Navbar/>
       
       <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/Acerca de nosotros" element={<Lore/>} />       
+      <Route path="*" element={<Error404/>} />
+      <Route path="/" element={<Home/>} />
+      <Route path="/Inicio" element={<Home/>} />
+      <Route path="/Acerca" element={<Lore/>} />  
+      <Route path="Clase" element={<clase/>} /> 
+
       </Routes>
           <Footer/>
     </Router>

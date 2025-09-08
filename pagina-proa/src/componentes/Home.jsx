@@ -26,14 +26,6 @@ function Home() {
             <h3>Programación</h3>
             <p>Formación en desarrollo de software y nuevas tecnologías.</p>
           </div>
-          <div style={styles.card}>
-            <h3>Electrónica</h3>
-            <p>Diseño y aplicación de sistemas electrónicos innovadores.</p>
-          </div>
-          <div style={styles.card}>
-            <h3>Biotecnología</h3>
-            <p>Explorando la ciencia aplicada a la vida y el futuro.</p>
-          </div>
         </div>
       </section>
 
@@ -41,9 +33,7 @@ function Home() {
       <section style={styles.section}>
         <h2 style={styles.sectionTitle}>Últimas Noticias</h2>
         <ul style={styles.newsList}>
-          <li>📢 Jornada de Puertas Abiertas – 15 de Septiembre</li>
-          <li>🏆 1° puesto en Olimpiadas de Matemática</li>
-          <li>🌱 Nuevo proyecto ecológico escolar</li>
+          <li>Tenemos un Podcas propio sobre la honestidad</li>
         </ul>
       </section>
 

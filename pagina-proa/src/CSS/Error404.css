@@ -1,0 +1,59 @@
+.error-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #00416a, #e4e5e6);
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Número 404 grande con animación */
+  .error-page h1 {
+    font-size: 10rem;
+    font-weight: bold;
+    color: #ffd700;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    animation: pulse 2s infinite alternate;
+  }
+  
+  /* Texto */
+  .error-page p {
+    font-size: 1.5rem;
+    margin: 20px 0;
+    max-width: 600px;
+  }
+  
+  /* Botón */
+  .error-page a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    background: #00416a;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  
+  .error-page a:hover {
+    background: #ffd700;
+    color: #00416a;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+  }
+  
+  /* Animación del número */
+  @keyframes pulse {
+    from {
+      transform: scale(1);
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+    }
+    to {
+      transform: scale(1.1);
+      text-shadow: 0 0 30px rgba(255, 215, 0, 1);
+    }
+  }
+  

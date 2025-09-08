@@ -4,7 +4,7 @@ function Footer() {
   return (
     <footer className="">
       <div className="container">
-        <p>📍 Dirección: Av. Siempre Viva 123</p>
+        <p>📍 Dirección: Agustin Garson 1221</p>
         <p>📞 Teléfono: (123) 456-789</p>
         <p>🌐 Redes: Facebook | Instagram</p>
         <p className="mb-1">&copy; 2025 Website PROA. Todos los derechos reservados.</p>
