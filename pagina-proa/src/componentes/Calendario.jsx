@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 
-// Helpers
+
 const pad = (n) => String(n).padStart(2, "0");
 const toKey = (date) => `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
 const parseKey = (key) => {

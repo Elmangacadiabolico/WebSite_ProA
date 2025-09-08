@@ -4,6 +4,7 @@ import Home from "./componentes/home";
 import Navbar from "./componentes/Navbar";
 import Lore from "./componentes/Lore";
 import Error404 from "./componentes/Error404";
+import Calendraio from "./componentes/Calendario"
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Route path="/Inicio" element={<Home/>} />
       <Route path="/Acerca" element={<Lore/>} />  
       <Route path="Clase" element={<clase/>} /> 
+      <Route path="/Calendario" element={<Calendraio/>} /> 
 
       </Routes>
           <Footer/>
