@@ -13,6 +13,7 @@ function Navbar() {
           <a href="/Inicio" className="link">Inicio</a>
           <a href="/Contenido" className="link">Contenido</a>
           <a href="/Acerca" className="link">Acerca de nosotros</a>
+          <a href="/Calendario" className="link">Calendario</a>
         </div>
       </div>
     </nav>
