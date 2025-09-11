@@ -36,15 +36,6 @@ const dioses = [
     linkedin: 'https://linkedin.com',
   },
 ];
-  {
-    id: 4,
-    name: 'Emanuel',
-    description: 'Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla.',
-    image: 'https://via.placeholder.com/150',
-    github: 'https://github.com',
-    linkedin: 'https://linkedin.com',
-  },
-];
 
 function Dioses() {
   return (
