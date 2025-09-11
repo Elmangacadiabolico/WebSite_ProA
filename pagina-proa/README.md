@@ -11,77 +11,82 @@ El proyecto está organizado en dos partes principales:
 
 ---
 
-## Frontend (React + Vite)
+## Cómo Ejecutar la Aplicación Completa
 
-El frontend es una aplicación de una sola página (SPA) construida con React y Vite.
+Para trabajar en el proyecto, necesitarás 3 terminales separadas.
 
-### Tecnologías Utilizadas (Frontend)
+**Terminal 1: Iniciar la Base de Datos**
+(Asegúrate de que Docker Desktop esté corriendo)
+```sh
+# En la raíz del proyecto
+docker-compose up -d
+```
 
--   [React](https://reactjs.org/)
--   [Vite](https://vitejs.dev/)
--   [React Router](https://reactrouter.com/) para el enrutamiento.
--   [Bootstrap](https://getbootstrap.com/) para los estilos.
--   [React Icons](https://react-icons.github.io/react-icons/) para los iconos.
--   [Axios](https://axios-http.com/) para realizar peticiones HTTP al backend.
+**Terminal 2: Iniciar el Backend (API)**
+```sh
+# En la raíz del proyecto
+cd servidor
+npm run dev
+```
 
-### Cómo Empezar (Frontend)
+**Terminal 3: Iniciar el Frontend (Interfaz de Usuario)**
+```sh
+# En la raíz del proyecto
+npm run dev
+```
 
-1.  **Navega a la raíz del proyecto.**
-2.  **Instala las dependencias:**
-    ```sh
-    npm install
-    ```
-3.  **Ejecuta el servidor de desarrollo:**
-    ```sh
-    npm run dev
-    ```
-    La aplicación estará disponible en `http://localhost:5173`.
+**URLs importantes:**
+- Frontend (tu app): `http://localhost:5173`
+- Backend (API): `http://localhost:3000`
+- Página de login: `http://localhost:3000/api/auth/signin`
 
 ---
 
-## Backend (Next.js)
+## Configuración (Solo la primera vez)
 
-El backend está construido con Next.js y se encarga de la API, la conexión a la base de datos con Prisma y la autenticación de usuarios con Next-Auth.
+Sigue estos pasos en orden para instalar y configurar todo el proyecto.
 
-### Tecnologías Utilizadas (Backend)
+### 1. Instalar Dependencias
 
--   [Next.js](https://nextjs.org/)
--   [Next-Auth](https://next-auth.js.org/) para la autenticación.
--   [Prisma](https://www.prisma.io/) como ORM para la base de datos.
--   [PostgreSQL](https://www.postgresql.org/) como base de datos, gestionada con Docker.
+**a) Frontend:**
+```sh
+# En la raíz del proyecto
+npm install
+```
 
-### Configuración de la Base de Datos (Primera vez)
+**b) Backend:**
+```sh
+# En la raíz del proyecto, navega a la carpeta del servidor e instala
+cd servidor
+npm install
+```
+
+### 2. Configurar Base de Datos
 
 1.  **Iniciar Docker:** Asegúrate de que la aplicación Docker Desktop esté corriendo.
-2.  **Levantar el contenedor:** En la raíz del proyecto, ejecuta:
+2.  **Levantar Contenedor:** En la raíz del proyecto, ejecuta:
     ```sh
     docker-compose up -d
     ```
-3.  **Sincronizar la base de datos:** Prisma necesita crear las tablas a partir del esquema. Ejecuta:
+3.  **Sincronizar Base de Datos:** Vuelve a la carpeta del servidor y ejecuta `prisma db push` para crear las tablas.
     ```sh
-    cd servidor && npx prisma db push
+    # Si no estás en la carpeta "servidor", entra con: cd servidor
+    npx prisma db push
     ```
 
-### Cómo Empezar (Backend)
+### 3. Configurar Variables de Entorno (Backend)
 
-1.  **Navega a la carpeta del servidor:**
-    ```sh
-    cd servidor
-    ```
-2.  **Instala las dependencias:**
-    ```sh
-    npm install
-    ```
-3.  **Configura las variables de entorno:**
-    *   Crea una copia del archivo `.env.example` (si existe) y renómbrala a `.env`.
-    *   Añade tus credenciales de Google y un `NEXTAUTH_SECRET`.
-    *   La `DATABASE_URL` ya debería estar configurada por `prisma init`.
-4.  **Ejecuta el servidor de desarrollo:**
-    ```sh
-    npm run dev
-    ```
-    El servidor de la API estará disponible en `http://localhost:3000`.
+Dentro de la carpeta `/servidor`, crea un archivo llamado `.env` y añade las siguientes claves. **¡No compartas este archivo!**
 
-## Scripts Disponibles
+-   `DATABASE_URL`: Debe ser `postgresql://proa_user:proa_password@localhost:5432/proa_db`
+-   `GOOGLE_CLIENT_ID`: Tu ID de cliente de Google.
+-   `GOOGLE_CLIENT_SECRET`: Tu secreto de cliente de Google.
+-   `NEXTAUTH_SECRET`: Una clave secreta larga y aleatoria para firmar las sesiones.
 
-Cada parte (frontend y backend) tiene sus propios scripts (`dev`, `build`, `lint`, etc.) que se ejecutan desde sus respectivas carpetas.
+---
+
+## Tecnologías Utilizadas
+
+- **Frontend:** React, Vite, React Router, Bootstrap, Axios.
+- **Backend:** Next.js, Next-Auth, Prisma.
+- **Base de Datos:** PostgreSQL con Docker.
