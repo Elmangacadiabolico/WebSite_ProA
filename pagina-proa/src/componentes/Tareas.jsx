@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import "../CSS/tareas.css"
+import React, { useState, useEffect } from "react";
+import apiClient from "../api"; // Importamos la instancia de Axios
+import "../CSS/tareas.css";
 
 function Tarea({ tarea, completarTarea, eliminarTarea }) {
   return (
@@ -8,9 +9,9 @@ function Tarea({ tarea, completarTarea, eliminarTarea }) {
         {tarea.titulo}
       </span>
       {!tarea.completada && (
-        <button onClick={() => completarTarea(tarea.id)}>✅ Completar</button>
+        <button onClick={() => completarTarea(tarea.id)}>Completar</button>
       )}
-      <button onClick={() => eliminarTarea(tarea.id)}>❌ Eliminar</button>
+      <button onClick={() => eliminarTarea(tarea.id)}>Eliminar</button>
     </li>
   );
 }
@@ -19,28 +20,62 @@ export default function TareasApp() {
   const [tareas, setTareas] = useState([]);
   const [titulo, setTitulo] = useState("");
 
-  const agregarTarea = () => {
+  // useEffect para cargar las tareas desde el backend cuando el componente se monta
+  useEffect(() => {
+    const fetchTareas = async () => {
+      try {
+        // NOTA: Esto fallará hasta que crees el endpoint GET /api/tareas en tu backend
+        const response = await apiClient.get("/tareas");
+        setTareas(response.data);
+      } catch (error) {
+        console.error("Error al cargar las tareas:", error);
+        // Aquí podrías mostrar un mensaje de error al usuario
+      }
+    };
+
+    fetchTareas();
+  }, []); // El array vacío asegura que se ejecute solo una vez
+
+  const agregarTarea = async () => {
     if (!titulo.trim()) return;
     const nuevaTarea = {
-      id: Date.now(),
       titulo,
       completada: false,
     };
-    setTareas([...tareas, nuevaTarea]);
-    setTitulo("");
+    try {
+      // NOTA: Esto fallará hasta que crees el endpoint POST /api/tareas en tu backend
+      const response = await apiClient.post("/tareas", nuevaTarea);
+      setTareas([...tareas, response.data]); // Agrega la tarea devuelta por el backend (que tendrá un ID)
+      setTitulo("");
+    } catch (error) {
+      console.error("Error al agregar la tarea:", error);
+    }
   };
 
-  const eliminarTarea = (id) => {
-    setTareas(tareas.filter((tarea) => tarea.id !== id));
+  const eliminarTarea = async (id) => {
+    try {
+      // NOTA: Esto fallará hasta que crees el endpoint DELETE /api/tareas/:id en tu backend
+      await apiClient.delete(`/tareas/${id}`);
+      setTareas(tareas.filter((tarea) => tarea.id !== id));
+    } catch (error) {
+      console.error("Error al eliminar la tarea:", error);
+    }
   };
 
-  const completarTarea = (id) => {
-    setTareas(
-      tareas.map((t) => (t.id === id ? { ...t, completada: true } : t))
-    );
+  const completarTarea = async (id) => {
+    try {
+      // NOTA: Esto fallará hasta que crees el endpoint PUT /api/tareas/:id en tu backend
+      const response = await apiClient.put(`/tareas/${id}/completar`);
+      setTareas(
+        tareas.map((t) => (t.id === id ? response.data : t))
+      );
+    } catch (error) {
+      console.error("Error al completar la tarea:", error);
+    }
   };
 
   const totalCompletadas = tareas.filter((t) => t.completada).length;
+
 
   return (
     <div className="tareas-app">

@@ -55,7 +55,7 @@ function Login() {
         <button type="submit">Ingresar</button>
       </form>
 
-      {success && <p style={{color: "green"}}>✅ Login exitoso!</p>}
+      {success && <p style={{color: "green"}}> Login exitoso!</p>}
       {error && <p style={{color: "red"}}>{error}</p>}
     </div>
   )

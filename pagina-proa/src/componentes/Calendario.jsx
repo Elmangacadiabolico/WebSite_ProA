@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
+import apiClient from "../api"; // Importamos la instancia de Axios
 import "../CSS/calendario.css";
 
 const pad = (n) => String(n).padStart(2, "0");
@@ -51,19 +52,19 @@ function Calendario() {
   const [selectedDate, setSelectedDate] = useState(null);
   const [newEvent, setNewEvent] = useState("");
 
+  // Carga los eventos desde el backend al iniciar
   useEffect(() => {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) {
-        setEvents(JSON.parse(raw));
+    const fetchEvents = async () => {
+      try {
+        // NOTA: Esto fallará hasta que crees el endpoint GET /api/eventos
+        const response = await apiClient.get("/eventos");
+        setEvents(response.data);
+      } catch (error) {
+        console.error("Error al cargar los eventos:", error);
       }
-    } catch (e) {}
+    };
+    fetchEvents();
   }, []);
-  useEffect(() => {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(events));
-    } catch (e) {}
-  }, [events]);
 
   const grid = useMemo(
     () => buildMonthMatrix(cursor.getFullYear(), cursor.getMonth()),
@@ -74,14 +75,21 @@ function Calendario() {
     year: "numeric",
   });
 
-  function addEvent() {
+  async function addEvent() {
     if (!newEvent.trim() || !selectedDate) return;
-    setEvents([
-      ...events,
-      { id: crypto.randomUUID(), date: toKey(selectedDate), title: newEvent },
-    ]);
-    setNewEvent("");
-    setSelectedDate(null);
+    const newEventData = {
+      date: toKey(selectedDate),
+      title: newEvent,
+    };
+    try {
+      // NOTA: Esto fallará hasta que crees el endpoint POST /api/eventos
+      const response = await apiClient.post("/eventos", newEventData);
+      setEvents([...events, response.data]);
+      setNewEvent("");
+      setSelectedDate(null);
+    } catch (error) {
+      console.error("Error al agregar el evento:", error);
+    }
   }
 
   function eventsOn(date) {
