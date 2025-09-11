@@ -41,13 +41,26 @@ El frontend es una aplicación de una sola página (SPA) construida con React y 
 
 ## Backend (Next.js)
 
-El backend está construido con Next.js y gestiona los datos y la autenticación de usuarios a través de `next-auth`.
+El backend está construido con Next.js y se encarga de la API, la conexión a la base de datos con Prisma y la autenticación de usuarios con Next-Auth.
 
 ### Tecnologías Utilizadas (Backend)
 
 -   [Next.js](https://nextjs.org/)
--   [React](https://reactjs.org/) (requerido por Next.js)
 -   [Next-Auth](https://next-auth.js.org/) para la autenticación.
+-   [Prisma](https://www.prisma.io/) como ORM para la base de datos.
+-   [PostgreSQL](https://www.postgresql.org/) como base de datos, gestionada con Docker.
+
+### Configuración de la Base de Datos (Primera vez)
+
+1.  **Iniciar Docker:** Asegúrate de que la aplicación Docker Desktop esté corriendo.
+2.  **Levantar el contenedor:** En la raíz del proyecto, ejecuta:
+    ```sh
+    docker-compose up -d
+    ```
+3.  **Sincronizar la base de datos:** Prisma necesita crear las tablas a partir del esquema. Ejecuta:
+    ```sh
+    cd servidor && npx prisma db push
+    ```
 
 ### Cómo Empezar (Backend)
 
@@ -59,7 +72,11 @@ El backend está construido con Next.js y gestiona los datos y la autenticación
     ```sh
     npm install
     ```
-3.  **Ejecuta el servidor de desarrollo:**
+3.  **Configura las variables de entorno:**
+    *   Crea una copia del archivo `.env.example` (si existe) y renómbrala a `.env`.
+    *   Añade tus credenciales de Google y un `NEXTAUTH_SECRET`.
+    *   La `DATABASE_URL` ya debería estar configurada por `prisma init`.
+4.  **Ejecuta el servidor de desarrollo:**
     ```sh
     npm run dev
     ```
