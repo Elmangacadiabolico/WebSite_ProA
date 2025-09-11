@@ -14,8 +14,8 @@ function Contactos() {
   ];
 
   return (
-    // Contenedor principal del widget, posicionado de forma fija
-    <div className="contact-widget">
+    // El contenedor principal ahora también recibe la clase "active"
+    <div className={`contact-widget ${active ? "active" : ""}`}>
       <div 
         className={`menu ${active ? "active" : ""}`}
         style={{ '--total-items': socialLinks.length }}
