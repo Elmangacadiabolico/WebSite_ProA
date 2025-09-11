@@ -1,85 +1,85 @@
-.footer {
-    background: #222;
-    padding: 40px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  /* Contenedor del menú */
-  .menu {
-    position: relative;
-    width: 80px;
-    height: 80px;
-  }
-  
-  /* Botón principal */
-  .toggle {
-    width: 80px;
-    height: 80px;
-    background: #00416a;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 2rem;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
-  
-  .toggle:hover {
-    background: #ffd700;
-    color: #222;
-  }
-  
-  /* Estilos para los ítems sociales */
-  .social-item {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 55px;
-    height: 55px;
-    background: #00416a;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 1.5rem;
-    transform: translate(-50%, -50%) scale(0);
-    transition: transform 0.4s ease, background 0.3s ease;
-  }
-  
-  .social-item a {
-    color: white;
-    font-size: 1.5rem;
-  }
-  
-  .social-item:hover {
-    background: #ffd700;
-    color: #222;
-  }
-  
-  /* Cuando el menú está activo (toggle presionado) */
-  .menu.active .social-item {
-    transform: translate(-50%, -50%) scale(1);
-  }
-  
-  /* Posiciones de los ítems (como "explosión circular") */
-  .menu.active .facebook {
-    transform: translate(-150%, -50%) scale(1);
-  }
-  
-  .menu.active .twitter {
-    transform: translate(50%, -150%) scale(1);
-  }
-  
-  .menu.active .instagram {
-    transform: translate(150%, -50%) scale(1);
-  }
-  
-  .menu.active .linkedin {
-    transform: translate(-50%, 150%) scale(1);
-  }
+/* Contenedor principal del widget */
+.contact-widget {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+/* Contenedor del menú */
+.menu {
+  position: relative;
+  width: 60px; /* Tamaño reducido para ser menos intrusivo */
+  height: 60px;
+}
+
+/* Botón principal */
+.toggle {
+  width: 100%;
+  height: 100%;
+  background: var(--accent-primary);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.toggle:hover {
+  background: var(--accent-primary-hover);
+}
+
+.menu.active .toggle {
+  transform: rotate(315deg); /* Gira el ícono de "compartir" a una "X" */
+}
+
+/* Estilos para los ítems sociales */
+.social-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-origin: center center;
+  transform: scale(1); /* Ocultos por defecto */
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 5; /* Detrás del botón principal pero visible */
+}
+
+.toggle {
+  position: relative; /* Necesario para que z-index funcione */
+  z-index: 10;
+}
+
+.social-item a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px; /* Tamaño de los círculos de íconos */
+  height: 50px;
+  background: var(--bg-secondary);
+  border-radius: 50%;
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 5px var(--shadow-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.social-item a:hover {
+  background: var(--accent-primary);
+  color: white;
+}
+
+/* Cuando el menú está activo, anima los ítems para que aparezcan */
+.menu.active .social-item {
+  transition-delay: calc(0.05s * var(--i));
+  transform: rotate(calc(var(--i) * (360deg / var(--total-items)))) translateX(110px) rotate(calc(var(--i) * -(360deg / var(--total-items)))) scale(1);
+}
   

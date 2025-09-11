@@ -1,127 +1,92 @@
 .tareas-app {
-    background: #fff;
-    padding: 20px 30px;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    max-width: 500px;
-    margin: 0 auto;
-    font-family: 'Segoe UI', sans-serif;
-    color: #333;
-  }
-  
-  .tareas-app h2 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-    text-align: center;
-    color: #4f46e5;
-  }
-  
-  .tareas-app h3 {
-    margin-top: 25px;
-    color: #374151;
-    font-size: 1.2rem;
-    border-bottom: 2px solid #e5e7eb;
-    padding-bottom: 5px;
-  }
-  
-  .tareas-app .input-group {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 15px;
-  }
-  
-  .tareas-app input[type="text"] {
-    flex: 1;
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #d1d5db;
-    font-size: 1rem;
-  }
-  
-  .tareas-app button {
-    padding: 8px 14px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background 0.2s ease-in-out, transform 0.1s;
-  }
-  
-  .tareas-app button:hover {
-    transform: scale(1.05);
-  }
-  
-  /* Botón agregar */
-  .tareas-app .input-group button {
-    background: #4f46e5;
-    color: white;
-  }
-  
-  .tareas-app .input-group button:hover {
-    background: #4338ca;
-  }
-  
-  /* Lista */
-  .tareas-app ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .tarea-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #f3f4f6;
-    margin: 8px 0;
-    padding: 10px 15px;
-    border-radius: 10px;
-    transition: background 0.2s;
-  }
-  
-  .tarea-item:hover {
-    background: #e5e7eb;
-  }
-  
-  .tarea-item span {
-    flex: 1;
-    font-size: 1rem;
-    color: #111827;
-  }
-  
-  .tarea-item span.completada {
-    text-decoration: line-through;
-    color: #6b7280;
-  }
-  
-  /* Botones de cada tarea */
-  .tarea-item button {
-    margin-left: 8px;
-    font-size: 0.9rem;
-  }
-  
-  .tarea-item button:first-of-type {
-    background: #10b981;
-    color: white;
-  }
-  
-  .tarea-item button:first-of-type:hover {
-    background: #059669;
-  }
-  
-  .tarea-item button:last-of-type {
-    background: #ef4444;
-    color: white;
-  }
-  
-  .tarea-item button:last-of-type:hover {
-    background: #dc2626;
-  }
-  
-  /* Contador */
-  .tareas-app p {
-    margin-top: 20px;
-    text-align: center;
-    font-weight: 500;
-    color: #374151;
-  }
+  background: var(--card-bg);
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px var(--shadow-color);
+  max-width: 600px;
+  margin: 40px auto;
+}
+
+.tareas-app h2 {
+  text-align: center;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+.tareas-app h3 {
+  margin-top: 25px;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 8px;
+}
+
+.tareas-app .input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* El input ya tiene estilos globales, no necesita más aquí */
+
+.tareas-app ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+.tarea-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: var(--bg-secondary);
+  margin: 8px 0;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  transition: background-color 0.2s ease;
+}
+
+.tarea-item:hover {
+  background-color: var(--bg-tertiary);
+}
+
+.tarea-item span {
+  flex: 1;
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.tarea-item span.completada {
+  text-decoration: line-through;
+  color: var(--text-secondary);
+}
+
+/* Botones de cada tarea */
+.tarea-item button {
+  padding: 6px 12px;
+  font-size: 0.9rem;
+}
+
+.btn-completar {
+  background-color: #34c759;
+}
+.btn-completar:hover {
+  background-color: #2ca349;
+}
+
+.btn-eliminar {
+  background-color: #ff3b30;
+}
+.btn-eliminar:hover {
+  background-color: #d93228;
+}
+
+.tareas-app p {
+  margin-top: 25px;
+  text-align: center;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
   

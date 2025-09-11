@@ -9,9 +9,9 @@ function Tarea({ tarea, completarTarea, eliminarTarea }) {
         {tarea.titulo}
       </span>
       {!tarea.completada && (
-        <button onClick={() => completarTarea(tarea.id)}>Completar</button>
+        <button className="btn-completar" onClick={() => completarTarea(tarea.id)}>Completar</button>
       )}
-      <button onClick={() => eliminarTarea(tarea.id)}>Eliminar</button>
+      <button className="btn-eliminar" onClick={() => eliminarTarea(tarea.id)}>Eliminar</button>
     </li>
   );
 }
