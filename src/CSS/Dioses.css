@@ -1,0 +1,66 @@
+.dioses-page {
+  padding-top: 40px;
+  padding-bottom: 60px;
+  text-align: center;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  color: var(--text-primary);
+}
+
+.page-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 40px;
+}
+
+.dioses-container {
+  display: grid;
+  /* Se reduce el tamaño mínimo de la tarjeta para que quepan 4 */
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+}
+
+.dios-card {
+  text-align: center;
+  padding: 25px;
+}
+
+.dios-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid var(--border-color);
+  margin-bottom: 20px;
+  object-fit: cover;
+}
+
+.dios-name {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.dios-description {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+.dios-socials {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.dios-socials a {
+  color: var(--text-secondary);
+  font-size: 1.8rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.dios-socials a:hover {
+  color: var(--accent-primary);
+  transform: scale(1.1);
+}

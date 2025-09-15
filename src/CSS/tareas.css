@@ -1,0 +1,92 @@
+.tareas-app {
+  background: var(--card-bg);
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px var(--shadow-color);
+  max-width: 600px;
+  margin: 40px auto;
+}
+
+.tareas-app h2 {
+  text-align: center;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+.tareas-app h3 {
+  margin-top: 25px;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 8px;
+}
+
+.tareas-app .input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* El input ya tiene estilos globales, no necesita más aquí */
+
+.tareas-app ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+.tarea-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: var(--bg-secondary);
+  margin: 8px 0;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  transition: background-color 0.2s ease;
+}
+
+.tarea-item:hover {
+  background-color: var(--bg-tertiary);
+}
+
+.tarea-item span {
+  flex: 1;
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.tarea-item span.completada {
+  text-decoration: line-through;
+  color: var(--text-secondary);
+}
+
+/* Botones de cada tarea */
+.tarea-item button {
+  padding: 6px 12px;
+  font-size: 0.9rem;
+}
+
+.btn-completar {
+  background-color: #34c759;
+}
+.btn-completar:hover {
+  background-color: #2ca349;
+}
+
+.btn-eliminar {
+  background-color: #ff3b30;
+}
+.btn-eliminar:hover {
+  background-color: #d93228;
+}
+
+.tareas-app p {
+  margin-top: 25px;
+  text-align: center;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+  

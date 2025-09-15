@@ -1,0 +1,153 @@
+.calendar-app {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px var(--shadow-color);
+  color: var(--text-primary);
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.calendar-header h2 {
+  text-transform: capitalize;
+  font-size: 1.8rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.calendar-header button {
+  background: var(--accent-primary);
+}
+
+/* Grid del calendario */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.calendar-dayname {
+  background: var(--bg-secondary);
+  text-align: center;
+  font-weight: 600;
+  padding: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.calendar-cell {
+  min-height: 110px;
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-primary);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.calendar-cell:hover {
+  background: var(--bg-secondary);
+}
+
+.calendar-cell.out-month {
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
+
+.calendar-cell.today {
+  border: 2px solid var(--accent-primary);
+  background: var(--bg-tertiary);
+}
+
+.day-number {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.events-list {
+  font-size: 0.8rem;
+  margin-top: 5px;
+  padding-left: 12px;
+}
+
+.events-list li {
+  list-style: disc;
+  color: var(--text-secondary);
+}
+
+/* Formulario para eventos */
+.event-form {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background: var(--bg-secondary);
+}
+
+.event-form h3 {
+  margin-bottom: 15px;
+  color: var(--text-primary);
+}
+
+.event-form button {
+  background-color: #34c759;
+}
+.event-form button:hover {
+  background-color: #2ca349;
+}
+
+/* API Route: tareas/[id].js */
+import { getSession } from 'next-auth/react';
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
+
+export default async function handler(req, res) {
+  const session = await getSession({ req });
+
+  if (!session) {
+    return res.status(401).json({ message: 'No autenticado' });
+  }
+
+  const { id: tareaId } = req.query; // Obtiene el ID de la tarea desde la URL
+
+  // Busca la tarea para asegurarse de que pertenece al usuario logueado
+  const tarea = await prisma.tarea.findFirst({
+    where: {
+      id: tareaId,
+      user: { email: session.user.email },
+    },
+  });
+
+  if (!tarea) {
+    return res.status(404).json({ message: 'Tarea no encontrada o no tienes permiso' });
+  }
+
+  if (req.method === 'PUT') {
+    // Marcar la tarea como completada
+    const tareaActualizada = await prisma.tarea.update({
+      where: { id: tareaId },
+      data: { completada: true },
+    });
+    return res.status(200).json(tareaActualizada); // Devuelve la tarea actualizada
+  }
+
+  if (req.method === 'DELETE') {
+    // Eliminar la tarea
+    await prisma.tarea.delete({
+      where: { id: tareaId },
+    });
+    return res.status(204).end(); // 204 No Content
+  }
+
+  res.setHeader('Allow', ['PUT', 'DELETE']);
+  return res.status(405).end(`Método ${req.method} no permitido`);
+}

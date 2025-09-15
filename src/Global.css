@@ -1,0 +1,142 @@
+/* 1. IMPORTACIÓN DE FUENTE Y RESET BÁSICO */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 2. DEFINICIÓN DE VARIABLES CSS (TEMA CLARO Y OSCURO) */
+:root {
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  /* Tema Claro */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F7F7F8;
+  --bg-tertiary: #EFEFF1;
+  --text-primary: #1A1A1A;
+  --text-secondary: #6B6B78;
+  --text-link: #007AFF;
+  --accent-primary: #007AFF;
+  --accent-primary-hover: #0056b3;
+  --border-color: #E5E5E6;
+  --shadow-color: rgba(0, 0, 0, 0.05);
+  --card-bg: var(--bg-primary);
+}
+
+body.dark {
+  /* Tema Oscuro */
+  --bg-primary: #121212;
+  --bg-secondary: #1E1E1E;
+  --bg-tertiary: #2A2A2A;
+  --text-primary: #E5E5E6;
+  --text-secondary: #9E9EA7;
+  --text-link: #0A84FF;
+  --accent-primary: #0A84FF;
+  --accent-primary-hover: #005fcc;
+  --border-color: #38383A;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --card-bg: var(--bg-secondary);
+}
+
+/* 3. ESTILOS BASE PARA EL CUERPO */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main);
+  line-height: 1.6;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* 4. ESTILOS PARA ELEMENTOS COMUNES */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  font-weight: 700;
+  margin-bottom: 0.75em;
+}
+
+p {
+  color: var(--text-secondary);
+  margin-bottom: 1em;
+}
+
+a {
+  color: var(--text-link);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Estilos para botones */
+button, .btn {
+  font-family: var(--font-main);
+  background-color: var(--accent-primary);
+  color: #FFFFFF;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  display: inline-block;
+  text-align: center;
+}
+
+button:hover, .btn:hover {
+  background-color: var(--accent-primary-hover);
+  transform: translateY(-1px);
+}
+
+/* Estilos para inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  font-family: var(--font-main);
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 2px var(--accent-primary-hover);
+}
+
+/* Estilos para "tarjetas" o contenedores */
+.card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 15px var(--shadow-color);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px var(--shadow-color);
+}
+
+/* Contenedor principal para centrar contenido */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}

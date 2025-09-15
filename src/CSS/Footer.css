@@ -1,0 +1,26 @@
+.footer {
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: 40px 0;
+  margin-top: 60px;
+  font-size: 0.9rem;
+}
+
+.footer .container {
+  text-align: center;
+}
+
+.footer-links {
+  margin-top: 10px;
+}
+
+.footer-links a {
+  color: var(--text-secondary);
+  margin: 0 10px;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: var(--accent-primary);
+}
