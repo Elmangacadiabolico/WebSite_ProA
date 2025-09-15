@@ -14,6 +14,13 @@
   justify-content: space-between;
 }
 
+.logo {
+  width: 10rem;   /* ancho del logo */
+  height: 5rem;  /* alto del logo */
+  object-fit: contain;
+  margin-right: 8px;
+}
+
 .navbar .brand {
   font-weight: 700;
   font-size: 1.5rem;

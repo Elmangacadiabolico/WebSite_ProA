@@ -7,7 +7,7 @@ import Error404 from "./componentes/Error404";
 import Calendraio from "./componentes/Calendario"
 import TareasApp from "./componentes/Tareas";
 import Contactos from "./componentes/Contactos";
-import Dioses from "./componentes/Dioses"; // <-- Importar el nuevo componente
+import Dioses from "./componentes/Dioses"; 
 
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
     <Router>
       <Navbar/>
       
-      <div style={{ flex: '1 0 auto', paddingTop: '20px' }}> {/* Contenedor principal para empujar el footer hacia abajo */}
+      <div style={{ flex: '1 0 auto', paddingTop: '20px' }}> 
         <Routes>
           <Route path="*" element={<Error404/>} />
           <Route path="/" element={<Home/>} />
@@ -23,7 +23,7 @@ function App() {
           <Route path="/Acerca" element={<Lore/>} />  
           <Route path="/tarea" element={<TareasApp/>} /> 
           <Route path="/Calendario" element={<Calendraio/>} /> 
-          <Route path="/creditos" element={<Dioses />} /> {/* <-- Añadir la nueva ruta */}
+          <Route path="/creditos" element={<Dioses />} /> 
         </Routes>
       </div>
 

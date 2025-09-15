@@ -7,8 +7,8 @@ function Navbar() {
     <header className="navbar">
       <div className="container">
         <NavLink to="/" className="brand">
-          {/* Puedes poner un logo o el nombre del proyecto aquí */}
-          Proa App
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7q9TtpKoP2zgn1Sd6nuvn7ZnwObmqrYgK0Q&s" alt="Logo Proa" className="logo"
+          />
         </NavLink>
         <nav className="links">
           <NavLink to="/Inicio" className="link">Inicio</NavLink>
